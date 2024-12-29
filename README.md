@@ -108,22 +108,22 @@ max_data_depth = 5
 
 | Entry | Default | Type | Description |
 |-|-|-|-|
-| **app_catalog** | `squid_app_catalog` | *[string]* || name of the catalog where file with logs is. Parent directory is %appdata% for Windows, ~/config/ for Linux, for HTML5 it is a prefix for cache. |
-| **log_file_name** | `squid_log_file` | *[string]* |name of the file where logs are saved. |
-| **log_file_extension** | `log` | *[string]* |extension for the file where logs are saved. Full file name is `log_file_name.log_file_extension`. |
-| **is_enabled** | 1 | *[0/1]* |- logging is disabled/enabled |
-| **is_enabled_in_release** | 1 | *[0/1]* |- logging is disabled/enabled in release |
-| **is_printing** | 1 | *[0/1]* |- logs printing to console is disabled/enabled |
-| **is_saving** | 1 | *[0/1]* |- logs saving to file is disabled/enabled |
-| **is_adding_timestamp** | 1 | *[0/1]* |- will/won't add a timestamp as a suffix to log file name in format `_YYYY-MM-DD_hh_mm` |
-| **is_using_allowlist** | 1 | *[0/1]* |- will/won't check tags against their state in allowlist |
-| **days_to_delete_logs** | 7 | *[integer]* | amount of days after which old logs are deleted from app_catalog, e.g if set to 7, logs older than 7 days will be deleted on next `squid.init()` call, 0 means previous logs will be always deleted |
-| **min_log_level** | 1 | *[integer]* | minimum logging level, where: 1 = TRACE, 2 = DEBUG, 3 = INFO, 4 = WARNING, 5 = ERROR |
-| **unsaved_logs_buffer** | 30 | *[integer]* | amount of logs that are buffered internally before saving automatically in batch to a log file, e.g. if set to 30, every 30 logs the automatic saving will be invoked and buffered logs will be cleared from memory |
-| **max_data_length** | 1000 | *[integer]* | maximum length of a data string |
-| **max_data_depth** | 5 | *[integer]* | maximum depth of a data table |
+| **app_catalog** | `squid_app_catalog` | *[string]* | Name of the catalog where file with logs is saved. Parent directory is the save file directory given by Defold sys API. It is operating system specific and is typically located under the user's home directory .e.g. `%appdata%` for Windows. For Linux it is aditionally prefixed with `config/`, so usually `~/config/`. For HTML5 it is only used as a prefix. |
+| **log_file_name** | `squid_log_file` | *[string]* | Name of the file where logs are saved. |
+| **log_file_extension** | `log` | *[string]* | Extension for the file where logs are saved. Full file name is `log_file_name.log_file_extension`. |
+| **is_enabled** | 1 | *[0/1]* | Logging is disabled/enabled |
+| **is_enabled_in_release** | 1 | *[0/1]* | Logging is disabled/enabled in release |
+| **is_printing** | 1 | *[0/1]* | Logs printing to console is disabled/enabled |
+| **is_saving** | 1 | *[0/1]* | Logs saving to file is disabled/enabled |
+| **is_adding_timestamp** | 1 | *[0/1]* | Will/won't add a timestamp as a suffix to log file name in format `_YYYY-MM-DD_hh_mm` |
+| **is_using_allowlist** | 1 | *[0/1]* | Will/won't check tags against their state in allowlist |
+| **days_to_delete_logs** | 7 | *[integer]* | Amount of days after which old logs are deleted from app_catalog, e.g if set to 7, logs older than 7 days will be deleted on next `squid.init()` call, 0 means previous logs will be always deleted |
+| **min_log_level** | 1 | *[integer]* | Minimum logging level, where: 1 = TRACE, 2 = DEBUG, 3 = INFO, 4 = WARNING, 5 = ERROR |
+| **unsaved_logs_buffer** | 30 | *[integer]* | Amount of logs that are buffered internally before saving automatically in batch to a log file, e.g. if set to 30, every 30 logs the automatic saving will be invoked and buffered logs will be cleared from memory |
+| **max_data_length** | 1000 | *[integer]* | Maximum length of a data string |
+| **max_data_depth** | 5 | *[integer]* | Maximum depth of a data table |
 
-*[0/1]* will be replaced with boolean checkboxes when [it will be possible in Defold with this issue solved](https://github.com/defold/defold/issues/9981).
+*[0/1]* might be replaced with boolean checkboxes when [it will be possible in Defold with this issue solved](https://github.com/defold/defold/issues/9981).
 
 ## Thanks
 

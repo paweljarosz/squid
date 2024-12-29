@@ -36,3 +36,6 @@ unsaved_logs_buffer = 30
 max_data_length = 1000
 max_data_depth = 5
 
+[library]
+include_dirs = squid
+
