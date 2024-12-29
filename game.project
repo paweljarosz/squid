@@ -33,6 +33,6 @@ is_using_allowlist = 1
 days_to_delete_logs = 7
 min_log_level = 1
 unsaved_logs_buffer = 30
-max_log_length = 1000
+max_data_length = 1000
 max_data_depth = 5
 

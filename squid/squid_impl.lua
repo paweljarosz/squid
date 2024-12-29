@@ -119,7 +119,7 @@ function SquidImpl.log(message, level, data_or_tag, tag)
 	-- Append optional data:
 	if data_or_tag then
 		if type(data_or_tag) == "table" then
-			data_or_tag = TableToString.convert(data_or_tag, SquidConfig.max_data_depth, nil, SquidConfig.max_log_length, 2, false)
+			data_or_tag = TableToString.convert(data_or_tag, SquidConfig.max_data_depth, nil, SquidConfig.max_data_length, 2, false)
 			complete_line = complete_line .. "\n Data:\n" .. data_or_tag
 		elseif type(data_or_tag) ~= "string" then
 			data_or_tag = tostring(data_or_tag) or ""
@@ -199,7 +199,7 @@ function SquidImpl.check_for_crashes()
 	.. "\n Signum: [\n  " .. crash.get_signum(dump) .. "\n ]"
 	.. "\n Userdata0: [\n  " .. crash.get_user_field(dump, 0) .. "\n ]"
 	.. "\n Backtrace: [\n  " .. table.concat(crash.get_backtrace(dump), "\n  ") .. "\n ]"
-	.. "\n Loaded modules: [\n" .. TableToString.convert(crash.get_modules(dump), SquidConfig.max_data_depth, nil, SquidConfig.max_log_length, 2, false) .. "\n ]"
+	.. "\n Loaded modules: [\n" .. TableToString.convert(crash.get_modules(dump), SquidConfig.max_data_depth, nil, SquidConfig.max_data_length, 2, false) .. "\n ]"
 	.. "\n Extra: [\n  " .. crash.get_extra_data(dump) .. "\n ]"
 
 	-- Log crash (without printing):
