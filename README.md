@@ -88,7 +88,7 @@ Additionally, the different log level messages are *colored* in Defold console:
 
 Squid can be configured in Defold's `game.project` file. Add squid configuration at the end of the file:
 
-```
+```lua
 [squid]
 app_catalog = squid_app_catalog
 log_file_name = squid_log_file
@@ -129,9 +129,9 @@ max_data_depth = 5
 
 Squid is heavily inspired by [Log](https://github.com/subsoap/log) and [Err](https://github.com/subsoap/err) by Subsoap and [Defold Log](https://github.com/Insality/defold-log) by Insality and uses and iterates over some of their solutions. Squid tries to be compatible with both APIs for easier replacements.
 
-If you like this module, you can show appreciation by supporting them. Insality is running [Github Sponsors](https://github.com/sponsors/insality), Ko-Fi, etc and [Subsoap is creating awesome games](https://www.subsoap.com/).
+If you like this module, you can show appreciation by supporting them. Insality is running [Github Sponsors](https://github.com/sponsors/insality), Ko-Fi, etc and [Subsoap create awesome games](https://www.subsoap.com/).
 
-You can also support me here via [Github Sponsors text](https://github.com/sponsors/paweljarosz), [Ko-Fi](https://ko-fi.com/witchcrafter) or [Patreon](https://www.patreon.com/witchcrafter_rpg) ;)
+You can also support me here via [Github Sponsors text](https://github.com/sponsors/paweljarosz), [Ko-Fi](https://ko-fi.com/witchcrafter) or [Patreon](https://www.patreon.com/witchcrafter_rpg). ^^
 
 ## Changelog
 
