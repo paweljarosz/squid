@@ -4,6 +4,9 @@
 ---@field is_debug		boolean
 local SystemHelper = {}
 
+-- localize
+local sys, io, os, tonumber, ipairs = sys, io, os, tonumber, ipairs
+
 local system_name = sys.get_sys_info().system_name
 
 SystemHelper.is_linux = system_name == "Linux"
@@ -148,18 +151,8 @@ function SystemHelper.remove_old_files_by_filename(files_table, directory, days_
 			local file_age_days = os.difftime(current_time, file_timestamp) / (60 * 60 * 24)
 			if file_age_days > days_threshold then
 				-- Remove the file if it's older than the threshold
-				--local success, err = 
 				os.remove(file_path)
-				--[[if success then
-					print("Removed old file:", file_path)
-				else
-					print("Error removing file:", file_path, err)
-				end]]
-			--else
-				--print("File is not old enough to remove:", file_path)
 			end
-		--else
-			--print("Skipping file due to invalid timestamp:", file_name)
 		end
 	end
 end
