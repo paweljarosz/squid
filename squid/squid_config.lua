@@ -11,7 +11,7 @@
 ---@field days_to_delete_logs	integer
 ---@field min_log_level			integer 1|2|3|4|5
 ---@field unsaved_logs_buffer	integer
----@field max_log_length		integer
+---@field max_data_length		integer
 ---@field max_data_depth		integer
 ---@field is_printing_crashes	boolean
 ---@field is_saving_crashes		boolean
@@ -32,7 +32,7 @@ local SquidConfig = {
 	days_to_delete_logs =	sys.get_config_int("squid.days_to_delete_logs", 7),
 	min_log_level =			sys.get_config_int("squid.min_log_level", 2),
 	unsaved_logs_buffer =	sys.get_config_int("squid.unsaved_logs_buffer", 30),
-	max_log_length =		sys.get_config_int("squid.max_log_length", 500),
+	max_data_length =		sys.get_config_int("squid.max_data_length", 500),
 	max_data_depth =		sys.get_config_int("squid.max_data_depth", 5),
 	is_printing_crashes =	sys.get_config_int("squid.is_printing_crashes", 1) == 1 and true or false,
 	is_saving_crashes =		sys.get_config_int("squid.is_saving_crashes", 1) == 1 and true or false,

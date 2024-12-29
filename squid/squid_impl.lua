@@ -64,23 +64,35 @@ function SquidImpl.init()
 		sys.set_error_handler(SquidImpl.error_handler)
 		crash.set_file_path(FILEPATH)
 	end
+
+	-- Delete old logs:
+	local files, error_message = SystemHelper.get_all_files_in_catalog(SquidConfig.app_catalog)
+	if error_message ~= "OK" or not files then
+		SquidImpl.log(error_message, WARN, nil, "squid")
+		return
+	end
+	local base_file_path = sys.get_save_file(SquidConfig.app_catalog, "")
+	local log_file_directory = base_file_path:match("^(.*)[/\\]")
+	SystemHelper.remove_old_files_by_filename(files, log_file_directory, SquidConfig.days_to_delete_logs)
+
+	-- Initialize new log file:
 	local engine_info = sys.get_engine_info()
 	local sys_info = sys.get_sys_info()
 	local init_log = "Squid Initialized."
-	.. "\n Engine version: "..engine_info.version
-	.. "\n Engine SHA1: "..engine_info.version_sha1
-	.. "\n Engine is debug?: "..(engine_info.is_debug and "true" or "false")
-	.. "\n Device model: "..sys_info.device_model
-	.. "\n Device manufacturer: "..sys_info.manufacturer
-	.. "\n Device language: "..sys_info.device_language
-	.. "\n Device identity: "..sys_info.device_ident
-	.. "\n System name: "..sys_info.system_name
-	.. "\n System version: "..sys_info.system_version
-	.. "\n System API version: "..sys_info.api_version
-	.. "\n System language: "..sys_info.language
-	.. "\n Territory: "..sys_info.territory
-	.. "\n GMT offset: "..sys_info.gmt_offset
-	.. "\n HTTP User Agent: "..sys_info.user_agent
+		.. "\n Engine version: "..engine_info.version
+		.. "\n Engine SHA1: "..engine_info.version_sha1
+		.. "\n Engine is debug?: "..(engine_info.is_debug and "true" or "false")
+		.. "\n Device model: "..sys_info.device_model
+		.. "\n Device manufacturer: "..sys_info.manufacturer
+		.. "\n Device language: "..sys_info.device_language
+		.. "\n Device identity: "..sys_info.device_ident
+		.. "\n System name: "..sys_info.system_name
+		.. "\n System version: "..sys_info.system_version
+		.. "\n System API version: "..sys_info.api_version
+		.. "\n System language: "..sys_info.language
+		.. "\n Territory: "..sys_info.territory
+		.. "\n GMT offset: "..sys_info.gmt_offset
+		.. "\n HTTP User Agent: "..sys_info.user_agent
 	IS_PRINTING = false
 	SquidImpl.log(init_log, INFO, nil, "squid")
 	IS_PRINTING = SquidConfig.is_printing
