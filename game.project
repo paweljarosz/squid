@@ -1,0 +1,38 @@
+[bootstrap]
+main_collection = /main/main.collectionc
+
+[script]
+shared_state = 1
+
+[display]
+width = 960
+height = 640
+high_dpi = 1
+
+[android]
+input_method = HiddenInputField
+
+[html5]
+scale_mode = stretch
+
+[project]
+title = squid
+dependencies#0 = https://github.com/defold/lua-language-server/archive/refs/tags/v1.7795.zip
+dependencies#1 = https://github.com/paweljarosz/lua-immutable/archive/refs/tags/v1.1.zip
+
+[squid]
+app_catalog = squid_app_catalog
+log_file_name = squid_log_file
+log_file_extension = txt
+is_enabled = 1
+is_enabled_in_release = 1
+is_printing = 1
+is_saving = 1
+is_adding_timestamp = 1
+is_using_allowlist = 1
+days_to_delete_logs = 7
+min_log_level = 1
+unsaved_logs_buffer = 30
+max_log_length = 1000
+max_data_depth = 5
+

@@ -1,0 +1,41 @@
+local squid = require "squid.squid"
+
+-- Tip: Before using you can define your custom settings in game.project under "Squid"
+
+function init(self)
+	-- If squid is initialized with init() it will handle errors and crashes automatically too
+	squid.init()
+
+	-- Define new tag strings and enable/disable them:
+	squid.set_allowed("main", true)
+
+	-- Use static logging functions with or without optional non-string data and/or tag string:
+	squid.trace("My Trace Message")								-- no data and no tag, uses default tag ("none")
+	squid.debug("My Debug Message  ", { my_test_data = 1 })		-- with optional non-string data (default tag used)
+	squid.info( "My Info Message   ", "main")					-- with string data only (used as tag too)
+	squid.warn( "My Warning Message", "Hello World", "main")	-- with string data and tag ("main" tag is used as tag here)
+	squid.error("My Error Message  ", vmath.vector3(1), "main")	-- with non-string data and tag
+	-- Or generic logging function with own logging level:
+	squid.log("My Other Message", squid.DEBUG)
+
+	-- Errors will be logged with source, message and traceback in console and saved to log file if configured:
+	--assert(false)
+
+	-- Crashes will be logged and saved to log file if Squid.final() is called in final() if configured:
+	--crash.write_dump()
+
+	-- Pro Tip: Can work as underlying logger module instance with:
+	-- my libraries, e.g.: Pigeon
+	-- Insality's libraries, e.g.: Defold Saver, Defold Event
+
+	-- Create new instance with optional tag assigned (`none` by default) initially allowed or not
+	self.player_logger = squid.new("player", true)
+	-- Use all API function with the created instance
+	self.player_logger:info("Logger with 'player' tag")
+end
+
+function final()
+	-- Explicitly save any unsaved logs and check for crashes in final():
+	--(logs are saved automatically too, in batch every X logs as configured in game.project)
+	squid.final()
+end
