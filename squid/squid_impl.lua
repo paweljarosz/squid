@@ -199,7 +199,7 @@ end
 function SquidImpl.check_for_crashes()
 	local dump = crash.load_previous()
 	if dump == nil then
-		SquidImpl.log("CRASH: No crash dump found", INFO, nil, "crash")
+		SquidImpl.log("No crashes, no dump found.", INFO, nil, "squid")
 		return
 	end
 
@@ -216,10 +216,18 @@ function SquidImpl.check_for_crashes()
 
 	-- Log crash (without printing):
 	IS_PRINTING = false
-	SquidImpl.log("CRASH:" .. crash_log, 6, nil, "crash")
+	SquidImpl.log(crash_log, 6, nil, "crash")
 	IS_PRINTING = SquidConfig.is_printing
 
 	crash.release(dump)
+end
+
+function SquidImpl.get_config()
+	return SquidConfig
+end
+
+function SquidImpl.set_config(config)
+	SquidConfig = config
 end
 
 return SquidImpl

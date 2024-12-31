@@ -1,4 +1,5 @@
 ---SQUID
+---version: 1.1
 ---Squid is a standalone injectable system for saveable logging of user logs, errors and crashes for Defold
 ---License: MIT
 ---Copyright Paweł Jarosz 2024-2025
@@ -143,6 +144,18 @@ function Squid.new(tag, is_allowed)
 		ALLOWLIST = Squid.ALLOWLIST
 	}
 	return instance
+end
+
+---Get Squid configuration
+---@return SquidConfig @User configuration table compatible with SquidConfig
+function Squid.get_config()
+	return SquidImpl.get_config()
+end
+
+---Set and use user configuration
+---@param config SquidConfig @user configuration table compatible with SquidConfig
+function Squid.set_config(config)
+	SquidImpl.set_config(config)
 end
 
 return Squid

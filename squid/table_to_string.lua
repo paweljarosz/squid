@@ -2,6 +2,7 @@
 local TableToString = {}
 
 local max_depth = 0
+
 ---Converts table to one-line string
 ---@param t					table
 ---@param depth				integer
@@ -35,7 +36,6 @@ function TableToString.convert(t, depth, result, max_length, spaces_in_tab, is_j
 			if depth == 0 then
 				result = result .. key .. assignment .. "{ ... #" .. #value .. " }"
 			else
-				print("AAA", max_depth, depth)
 				for i = 1, (max_depth - depth) + 2 do
 					result = result .. "  "
 				end
@@ -67,7 +67,6 @@ function TableToString.convert(t, depth, result, max_length, spaces_in_tab, is_j
 		result = result .. tab
 	end
 
-	--max_depth = 0
 	return result .. "}", false
 end
 

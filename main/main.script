@@ -32,6 +32,15 @@ function init(self)
 	self.player_logger = squid.new("player", true)
 	-- Use all API function with the created instance
 	self.player_logger:info("Logger with 'player' tag")
+
+	-- Get current configuration:
+	local my_config = squid.get_config()
+	my_config.is_printing = false
+
+	-- Set new configuration:
+	squid.set_config(my_config)
+
+	squid.error("TEST")
 end
 
 function final()

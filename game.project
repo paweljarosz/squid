@@ -18,7 +18,6 @@ scale_mode = stretch
 [project]
 title = squid
 dependencies#0 = https://github.com/defold/lua-language-server/archive/refs/tags/v1.7795.zip
-dependencies#1 = https://github.com/paweljarosz/lua-immutable/archive/refs/tags/v1.1.zip
 
 [squid]
 app_catalog = squid_app_catalog
@@ -38,4 +37,7 @@ max_data_depth = 5
 
 [library]
 include_dirs = squid
+
+[native_extension]
+app_manifest = /squid.appmanifest
 

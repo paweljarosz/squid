@@ -40,6 +40,4 @@ local SquidConfig = {
 	crash_file_extension =	sys.get_config_string("squid.crash_file_extension", "bin"),
 }
 
-local immutable = require "immutable.immutable"
-
-return immutable(SquidConfig)
+return SquidConfig
